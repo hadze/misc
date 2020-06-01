@@ -13,10 +13,10 @@ from flask import abort
 from flask import render_template
 
 from jsonutilities import jsonutils 
-
 import logutilities
-logging = logutilities.logger.setLoggerName("server")
 
+# Define the logger and the entry string (here "server") within the log file
+logging = logutilities.logger.setLoggerName("server")
 
 
 app = Flask(__name__)

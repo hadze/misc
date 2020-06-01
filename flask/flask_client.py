@@ -13,7 +13,7 @@ import logutilities
 url = 'http://127.0.0.1:5000'
 predict = 'http://127.0.0.1:5000/predict'
 
-# Define the logger and the entry string within the log file
+# Define the logger and the entry string (here "client") within the log file
 logging = logutilities.logger.setLoggerName("client")
 
 # prepare sample payload string
