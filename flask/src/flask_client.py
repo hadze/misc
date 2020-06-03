@@ -16,35 +16,40 @@ predict = 'http://127.0.0.1:5000/predict'
 # Define the logger and the entry string (here "client") within the log file
 logging = logutilities.logger.setLoggerName("client")
 
-# prepare sample payload string
-payload = '''{
-    "title" : "Some title for a BugRequest",
-    "description" : "The description for the bug",
-    "component" : "Component affected by the bug"
-}'''
-logging.info("\nNew request sequence started #################################")
-logging.info("prepared payload is: \n%s" %payload)
+
+def sendPayload():
+    # prepare sample payload string
+    payload = '''{
+        "title" : "Some title for a BugRequest",
+        "description" : "The description for the bug",
+        "component" : "Component affected by the bug"
+    }'''
+    logging.info("\nNew request sequence started #################################")
+    logging.info("prepared payload is: \n%s" %payload)
 
 
-try:
-    logging.info("try sending the request...")
-    r = requests.post(predict, json=payload)
-except Exception as e:
-    logging.error("sending request failed: %s" %e)
+    try:
+        logging.info("try sending the request...")
+        r = requests.post(predict, json=payload)
+    except Exception as e:
+        logging.error("sending request failed: %s" %e)
 
-logging.info("receiving result...")
-result = r.json()
-logging.info("result is: %s" %result)
+    logging.info("receiving result...")
+    result = r.json()
+    logging.info("result is: %s" %result)
 
-#print(r.url)
-#print(r.text)
-#r.encoding
-#r.json()
-#r.raise_for_status()
-#r.status_code
-#r.raw
+    #print(r.url)
+    #print(r.text)
+    #r.encoding
+    #r.json()
+    #r.raise_for_status()
+    #r.status_code
+    #r.raw
 
-# Create file with the result
-with open("jsonresult", 'wb') as fd:
-    for chunk in r.iter_content(chunk_size=128):
-        fd.write(chunk)
+    # Create file with the result
+    with open("jsonresult", 'wb') as fd:
+        for chunk in r.iter_content(chunk_size=128):
+            fd.write(chunk)
+
+if __name__ == "__main__":
+    sendPayload()
