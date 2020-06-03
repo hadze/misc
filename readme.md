@@ -9,6 +9,7 @@ A simple logging mechanism for python with different approaches (logging via cod
 ## flask
 
 Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries.
+More details can be found here:
 [flask website](https://en.wikipedia.org/wiki/Flask_(web_framework))
 
 See also the comparison of different web frameworks
