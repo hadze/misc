@@ -10,11 +10,25 @@ import flask_client as fc
 #pwd
 
 class EventHandler(FileSystemEventHandler):
-    def on_any_event(self, event):
+    file_cache = {}
+
+    def on_created(self, event):
+        seconds = int(time.time())
+        key = (seconds, event.src_path)
+        print("Key: %s" %str(key))
+        if key in self.file_cache:
+            print("Already registered event")
+            return
+        self.file_cache[key] = True
+        # Process the file
         fc.sendPayload()
         print(event)
+    
+    #def on_any_event (if everything should be traced)
+    #...
+    
 
-def checkParameters(params):
+def checkAndGetDir(params):
     print("Number of arguments: ", len(sys.argv))
     print("The arguments are: " , str(sys.argv))
     if len(sys.argv) >= 2:
@@ -22,19 +36,11 @@ def checkParameters(params):
         path = str(sys.argv[1])
         return path
     else:
-        print("Path not provided!")
-        return 0
-
-
-# call this *.py-file with:
-# python filehandling.py /path-to-your-folder/to-be-watched-for
-if __name__ == "__main__":
-    res = checkParameters(sys.argv)
-    if res == 0:
-        print("Closing application...")
+        print("Path not provided! Closing application...")
         sys.exit()
 
-    path = res
+
+def observeDir(path):
     print("Watching at: %s ..." % path)
     event_handler = EventHandler()
     observer = Observer()
@@ -47,3 +53,16 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
+
+def main(params):
+    path = checkAndGetDir(params)
+    watcher = observeDir(path)
+        
+
+
+# call this *.py-file with:
+# python filehandling.py /path-to-your-folder/to-be-watched-for
+if __name__ == "__main__":
+    main(sys.argv)
+
+    
