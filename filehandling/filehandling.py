@@ -13,9 +13,28 @@ class EventHandler(FileSystemEventHandler):
         fc.sendPayload()
         print(event)
 
+def checkParameters(params):
+    print("Number of arguments: ", len(sys.argv))
+    print("The arguments are: " , str(sys.argv))
+    if len(sys.argv) >= 2:
+        print("Path to be watched at is: %s" %str(sys.argv[1]))
+        path = str(sys.argv[1])
+        return path
+    else:
+        print("Path not provided!")
+        return 0
+
+
 
 if __name__ == "__main__":
-    path = "/path-to-your-dir/temp"
+    res = checkParameters(sys.argv)
+    if res == 0:
+        print("Closing application...")
+        sys.exit()
+    
+    path = res
+    print("Watching at: %s ..." % path)
+    #path = "/Users/arminhadzalic/Dokumente/_armin"
     event_handler = EventHandler()
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
