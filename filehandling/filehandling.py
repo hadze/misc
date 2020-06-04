@@ -5,6 +5,7 @@ from watchdog.events import FileSystemEventHandler
 import sys
 sys.path.insert(0, '../flask/src/')
 import flask_client as fc
+
 #show current working directory
 #pwd
 
@@ -25,20 +26,21 @@ def checkParameters(params):
         return 0
 
 
-
+# call this *.py-file with:
+# python filehandling.py /path-to-your-folder/to-be-watched-for
 if __name__ == "__main__":
     res = checkParameters(sys.argv)
     if res == 0:
         print("Closing application...")
         sys.exit()
-    
+
     path = res
     print("Watching at: %s ..." % path)
-    #path = "/Users/arminhadzalic/Dokumente/_armin"
     event_handler = EventHandler()
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
+    
     try:
         while True:
             time.sleep(1)
