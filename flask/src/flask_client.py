@@ -8,22 +8,23 @@ Created on Thu May 29 13:27:43 2020
 
 import requests
 import logutilities
+import sys
 
 # Define URL of the application / webserver
-url = 'http://127.0.0.1:5000'
 predict = 'http://127.0.0.1:5000/predict'
 
 # Define the logger and the entry string (here "client") within the log file
 logging = logutilities.logger.setLoggerName("client")
 
 
-def sendPayload():
+def sendPayload(text):
     # prepare sample payload string
-    payload = '''{
-        "title" : "Some title for a BugRequest",
-        "description" : "The description for the bug",
-        "component" : "Component affected by the bug"
-    }'''
+    # payload = '''{
+    #    "title" : "Some title for a BugRequest",
+    #    "description" : "The description for the bug",
+    #    "component" : "Component affected by the bug"
+    #}'''
+    payload = text
     logging.info("\nNew request sequence started #################################")
     logging.info("prepared payload is: \n%s" %payload)
 
@@ -38,18 +39,28 @@ def sendPayload():
     result = r.json()
     logging.info("result is: %s" %result)
 
-    #print(r.url)
-    #print(r.text)
+    #r.url
+    #r.text
     #r.encoding
     #r.json()
     #r.raise_for_status()
     #r.status_code
     #r.raw
 
-    # Create file with the result
-    with open("jsonresult", 'wb') as fd:
-        for chunk in r.iter_content(chunk_size=128):
-            fd.write(chunk)
+
+def checkAndGetParams(argList):
+    if len(argList) >= 2:
+        print("Argument is: %s" %str(argList[1]))
+        argument = str(argList[1])
+        return argument
+    else:
+        print("Invalid arguments! Closing application...")
+        sys.exit()
+
+
+def main(params):
+    text = checkAndGetParams(params)
+    sendPayload(text)
 
 if __name__ == "__main__":
-    sendPayload()
+    main(sys.argv)

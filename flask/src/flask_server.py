@@ -6,11 +6,7 @@ Created on Thu May 29 13:29:10 2020
 @author: arminhadzalic
 """
 
-from flask import Flask
-from flask import request
-from flask import make_response
-from flask import abort
-from flask import render_template
+from flask import Flask, request, make_response, abort, render_template
 
 from jsonutilities import jsonutils 
 import logutilities
@@ -28,27 +24,28 @@ def show_form():
     
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.method == "POST":
-        logging.info("request method is POST")
     if request.is_json:
         logging.info("received json")
         
         logging.info("get content...")
         jsoncontent = request.get_json()
-        
-        logging.info("check json format...")
+        logging.info(jsoncontent)
 
+        logging.info("check json format...")
         json = jsonutils()
-        json.checkRequest(jsoncontent)
-        
-        prediction_result = do_predict(jsoncontent)
-        
-        response = make_response(prediction_result)
-        response.mimetype = 'application/json'
-        logging.info("responding result to client...")
-        return response
+        reqOk = json.checkRequest(jsoncontent)
+
+        if reqOk:
+            prediction_result = do_predict(jsoncontent)
+            response = make_response(prediction_result)
+            response.mimetype = 'application/json'
+            logging.info("responding result to client...")
+            return response
+        else:
+            logging.error("check json format failed!")
+            return "error in prediction!"
     else:
-        #logger.info("invalid json received")
+        logging.error("invalid json")
         abort("invalid json", 400)
 
 
@@ -62,12 +59,12 @@ def do_predict(text):
     # more complex methods/ calls are possible of course
     if len(text) % 2 == 0:
         logging.info("even")
-        print("result is: even")
-        return {"1st predicted name":"X"}
+        print("result is: %s" %text)
+        return text
     else:
         logging.info("odd")
-        print("result is: odd")
-        return {"2nd predicted name":"Y"}
+        print("result is: %s" %text)
+        return text
 
 # Main
 if __name__=='__main__':
