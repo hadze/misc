@@ -13,7 +13,8 @@ class jsonutils:
         try:
             tfsrq = json.loads(jsonDocument)
             jsonschema.validate(tfsrq, self._schema)
-            return "done"
+            print("Valid JSON")
+            return 1
         except jsonschema.exceptions.ValidationError as e:
             print("Invalid JSON:", e)
         except json.decoder.JSONDecodeError as e:
