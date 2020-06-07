@@ -36,25 +36,29 @@ class EventHandler(FileSystemEventHandler):
     #...
 
 def processFile(event, file):
-    print("Trying to process file: %s" %file)
+    logging.info("Trying to process file: %s" %file)
     try:
-        with open(file, mode="r") as json_file:
+        with open(file, mode="w") as json_file:
             content = json_file.read()
             logging.info("Opened json-file with this content: %s" %content)
             
     except ValueError as err:
-        logging.error("Error while reading file: %s" %err)
+        logging.error("Error while reading file:", exc_info=True)
         return
 
-    #load rawdata and create string with correctly formated JSON - with double quotes
-    #{'a':1} --> {"a":1}
-    rawdata = json.loads(content)
-    data = json.dumps(rawdata)
+    try:
+        #load rawdata and create string with correctly formated JSON - with double quotes
+        #{'a':1} --> {"a":1}
+        rawdata = json.loads(content)
+        data = json.dumps(rawdata)
+    except ValueError as e:
+        logging.error("Invalid Json Format:", exc_info=True)
+        return False
+    
     logging.info("sending data from filewatcher to client")
     fc.sendPayload(data)
 
     print(event)
-
 
 def checkAndGetDir(params):
     if len(sys.argv) >= 2:
