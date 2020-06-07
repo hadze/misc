@@ -38,7 +38,7 @@ class EventHandler(FileSystemEventHandler):
 def processFile(event, file):
     logging.info("Trying to process file: %s" %file)
     try:
-        with open(file, mode="w") as json_file:
+        with open(file, mode="r") as json_file:
             content = json_file.read()
             logging.info("Opened json-file with this content: %s" %content)
             
