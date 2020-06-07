@@ -9,7 +9,7 @@ class logger:
     logging.config.fileConfig(log_file_path) 
     
     # create a default logger
-    logger = logging.getLogger('default logger')
+    logger = logging.getLogger(__name_)
     
     
     def setLoggerName(name):
