@@ -33,7 +33,7 @@ def sendPayload(text):
         logging.info("try sending the request...")
         r = requests.post(predict, json=payload)
     except Exception as e:
-        logging.error("sending request failed: %s" %e)
+        logging.error("sending request failed:", exc_info=True)
 
     logging.info("receiving result...")
     result = r.json()
