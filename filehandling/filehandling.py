@@ -7,14 +7,13 @@ import json
 import sys
 sys.path.insert(0, '../flask/src/')
 
-import flask_client as fc
-import logutilities
+from flask_client import client
+
+""" sys.path.insert(0, '../logging/')
+import logutilities """
 
 #show current working directory
 #pwd
-
-# Define the logger and the entry string (here "filehandling") within the log file
-logging = logutilities.logger.setLoggerName("filehandling")
 
 class EventHandler(FileSystemEventHandler):
     file_cache = {}
@@ -24,7 +23,7 @@ class EventHandler(FileSystemEventHandler):
         key = (seconds, event.src_path)
         print("Key: %s" %str(key))
         if key in self.file_cache:
-            logging.debug("already registered event")
+            log.debug("already registered event")
             return
         self.file_cache[key] = True
         
@@ -36,14 +35,14 @@ class EventHandler(FileSystemEventHandler):
     #...
 
 def processFile(event, file):
-    logging.info("Trying to process file: %s" %file)
+    log.info("Trying to process file: %s" %file)
     try:
         with open(file, mode="r") as json_file:
             content = json_file.read()
-            logging.info("Opened json-file with this content: %s" %content)
+            log.info("Opened json-file with this content: %s" %content)
             
     except ValueError as err:
-        logging.error("Error while reading file:", exc_info=True)
+        log.error("Error while reading file:", exc_info=True)
         return
 
     try:
@@ -52,11 +51,13 @@ def processFile(event, file):
         rawdata = json.loads(content)
         data = json.dumps(rawdata)
     except ValueError as e:
-        logging.error("Invalid Json Format:", exc_info=True)
+        log.error("Invalid Json Format:", exc_info=True)
         return False
     
-    logging.info("sending data from filewatcher to client")
-    fc.sendPayload(data)
+    log.info("sending data from filewatcher to client")
+    data =[0, data]
+    cl = client(data)
+    #flask_client.sendPayload(data)
 
     print(event)
 
@@ -72,7 +73,7 @@ def checkAndGetDir(params):
 
 
 def observeDir(path):
-    logging.info("Watching at: %s ..." % path)
+    log.info("Watching at: %s ..." % path)
     print("Watching at: %s ..." % path)
     event_handler = EventHandler()
     observer = Observer()
@@ -91,9 +92,19 @@ def main(params):
     observeDir(path)
         
 
+def defineLogging():
+    # Define the logger and the entry string (here "FileHandling") within the log file
+    import sys
+    sys.path.insert(0, '../logging/')
+    from logutilities import logger
+    log = logger.getLogger("FileHandling")
+    return log
+
+
 # call this *.py-file with:
 # python filehandling.py /path-to-your-folder/to-be-watched-for
 if __name__ == "__main__":
+    log = defineLogging()
     main(sys.argv)
 
     
