@@ -2,6 +2,13 @@
 
 Description of the misc section and its projects inside
 
+## cheat-sheet
+Found a very simple git cheat-sheet here:
+[git cheat-sheet](https://www.jrebel.com/blog/git-cheat-sheet)
+
+Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple)
+![alt text](https://github.com/hadze/misc/blob/master/cheatsheet.png)
+
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
