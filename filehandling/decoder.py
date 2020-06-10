@@ -73,7 +73,7 @@ class decoder:
 
 # Workflow
 decode = decoder()
-content = decode.readFile("/Volumes/NO NAME/babo/user.txt")
+content = decode.readFile("/Volumes/path-to-your-encrypted-file/user.txt")
 df = decode.createDataFrame(content)
 name1 = decode.getRealName(df, "user0082")
 name2 = decode.getRealName(df, "user43a4")
