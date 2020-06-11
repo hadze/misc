@@ -19,9 +19,11 @@ class cryptography:
         self.key = Fernet.generate_key()
 
         if inFile:
+            print("Generating the key into key.key-file")
             with open("key.key", "wb") as key_file:
                 key_file.write(key)
         else:
+            print("Returning key to caller")
             return self.key
 
 
@@ -43,6 +45,7 @@ class cryptography:
         f = Fernet(key)
         
         # read file data
+        print("Reading the file ...")
         with open(filename, "rb") as file:
             file_data = file.read()
 
@@ -61,6 +64,7 @@ class cryptography:
         f = Fernet(key)
         
         # read the encrypted data
+        print("Reading the encrypted data ...")
         with open(filename, "rb") as file:
             encrypted_data = file.read()
 
@@ -68,6 +72,7 @@ class cryptography:
         decrypted_data = f.decrypt(encrypted_data)
 
         # write back original file
+        print("Write the decrypted data back ...")
         with open(filename, "wb") as file:
             file.write(decrypted_data)
 
@@ -89,7 +94,7 @@ currentDirectory = os.path.dirname(__file__)
 parentDirectory = os.path.split(currentDirectory)[0]
 dataDirectory = parentDirectory + "/data"
 userData = dataDirectory + file
-print(userData)
+print("File is: %s" %userData)
 
 # encrypt the file
 crypto.encrypt(userData, key)
