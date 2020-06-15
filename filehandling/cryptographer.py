@@ -1,11 +1,11 @@
 from cryptography.fernet import Fernet
 
-class cryptography:
+class cryptographer:
     '''
     Cryptography class which 
     - generates a key
     - loads the key
-    - encrypts / decrypts a given file
+    - encrypts / decrypts a given file with that key
     '''
     def __init__(self):
         self.users = []
@@ -21,7 +21,7 @@ class cryptography:
         if inFile:
             print("Generating the key into key.key-file")
             with open("key.key", "wb") as key_file:
-                key_file.write(key)
+                key_file.write(self.key)
         else:
             print("Returning key to caller")
             return self.key
@@ -79,7 +79,7 @@ class cryptography:
 ##################################################
 #Workflow
 
-crypto = cryptography()
+crypto = cryptographer()
 
 # uncomment this if it's the first run and generate the key
 key = crypto.generate_key()
