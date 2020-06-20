@@ -2,12 +2,16 @@
 
 Description of the misc section and its projects inside
 
-## cheat-sheet
+## cheat-sheet git
 Found a very simple git cheat-sheet here:
 [git cheat-sheet](https://www.jrebel.com/blog/git-cheat-sheet)
 
 Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple)
 ![alt text](https://github.com/hadze/misc/blob/master/cheatsheet.png)
+
+
+## cheat-sheet python
+[python cheat-sheet](https://github.com/jwasham/coding-interview-university/blob/master/extras/cheat%20sheets/python-cheat-sheet-v1.pdf)
 
 ## logging
 
