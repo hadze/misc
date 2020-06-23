@@ -16,6 +16,10 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
+Usefull links:
+[How To Logging](https://docs.python.org/3/howto/logging.html#logging-from-multiple-modules)
+[Logging in Practice](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/)
+[Using Logging in multiple modules](https://stackoverflow.com/questions/15727420/using-logging-in-multiple-modules)
 
 ## flask
 
