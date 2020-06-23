@@ -16,7 +16,7 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
-Usefull links:
+Useful links:
 
 [How To Logging](https://docs.python.org/3/howto/logging.html#logging-from-multiple-modules)
 
