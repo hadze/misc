@@ -9,6 +9,7 @@ Found a very simple git cheat-sheet here:
 Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple)
 ![alt text](https://github.com/hadze/misc/blob/master/cheatsheet.png)
 
+[Another example page for git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
 
 ## cheat-sheet python
 [python cheat-sheet](https://github.com/jwasham/coding-interview-university/blob/master/extras/cheat%20sheets/python-cheat-sheet-v1.pdf)
