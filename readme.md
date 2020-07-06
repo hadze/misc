@@ -14,6 +14,8 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 ## cheat-sheet python
 [python cheat-sheet](https://github.com/jwasham/coding-interview-university/blob/master/extras/cheat%20sheets/python-cheat-sheet-v1.pdf)
 
+[learn python](https://github.com/trekhleb/learn-python)
+
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
