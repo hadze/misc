@@ -11,10 +11,17 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 
 [Another example page for git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
 
-## cheat-sheet python
+## python
 [python cheat-sheet](https://github.com/jwasham/coding-interview-university/blob/master/extras/cheat%20sheets/python-cheat-sheet-v1.pdf)
 
 [learn python](https://github.com/trekhleb/learn-python)
+
+[python in 30 days](https://github.com/Asabeneh/30-Days-Of-Python)
+
+[python algorithms](https://github.com/TheAlgorithms/Python)
+
+[python 3](https://github.com/jerry-git/learn-python3)
+
 
 ## logging
 
