@@ -47,6 +47,10 @@ See also the comparison of different web frameworks
 
 Short example on how to realize an FileSystemWatcher 
 
+## aws
+How to apply machine learning and deep learning in [Amazon SageMaker](https://aws.amazon.com/de/sagemaker/)
+[sagemaker examples](https://github.com/awslabs/amazon-sagemaker-examples)
+
 ## Deployment
 
 ...
