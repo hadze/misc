@@ -25,6 +25,8 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 ## anaconda
 [anaconda cheat-sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf)
 
+[create environment](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/)
+
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
