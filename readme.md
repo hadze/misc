@@ -11,6 +11,8 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 
 [Another example page for git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
 
+[Git workflows](https://infos.seibert-media.net/display/Productivity/Git-Workflows+-+Der+Gitflow-Workflow)
+
 ## python
 [python cheat-sheet](https://github.com/jwasham/coding-interview-university/blob/master/extras/cheat%20sheets/python-cheat-sheet-v1.pdf)
 
