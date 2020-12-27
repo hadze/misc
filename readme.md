@@ -29,6 +29,8 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 
 [create environment](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/)
 
+[create environment from *.yml-file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file)
+
 [save environment to *.yml-file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-the-environment-yml-file)
 
 ## logging
