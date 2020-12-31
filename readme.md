@@ -33,6 +33,8 @@ Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple
 
 [save environment to *.yml-file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-the-environment-yml-file)
 
+[install jupyter nb_extensions to your environment](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html#conda)
+
 ## logging
 
 A simple logging mechanism for python with different approaches (logging via code, config file, etc.)
