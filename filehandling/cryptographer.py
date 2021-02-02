@@ -1,6 +1,6 @@
 from cryptography.fernet import Fernet
 
-class cryptography:
+class cryptographer:
     '''
     Cryptography class which 
     - generates a key
@@ -21,7 +21,7 @@ class cryptography:
         if inFile:
             print("Generating the key into key.key-file")
             with open("key.key", "wb") as key_file:
-                key_file.write(key)
+                key_file.write(self.key)
         else:
             print("Returning key to caller")
             return self.key
@@ -79,10 +79,10 @@ class cryptography:
 ##################################################
 #Workflow
 
-crypto = cryptography()
+crypto = cryptographer()
 
 # uncomment this if it's the first run and generate the key
-key = crypto.generate_key()
+key = crypto.generate_key(inFile=True)
 # load the key
 #key = crypto.load_key()
 file = "/user.txt"
@@ -90,9 +90,11 @@ file = "/user.txt"
 import os
 from pathlib import Path
 
+print("Get the directory...")
 currentDirectory = os.path.dirname(__file__)
+print("Directory is: %s" %currentDirectory)
 parentDirectory = os.path.split(currentDirectory)[0]
-dataDirectory = parentDirectory + "/data"
+dataDirectory = parentDirectory + "\data"
 userData = dataDirectory + file
 print("File is: %s" %userData)
 
