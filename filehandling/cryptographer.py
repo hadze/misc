@@ -5,7 +5,7 @@ class cryptographer:
     Cryptography class which 
     - generates a key
     - loads the key
-    - encrypts / decrypts a given file
+    - encrypts / decrypts a given file with that key
     '''
     def __init__(self):
         self.users = []
