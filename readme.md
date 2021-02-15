@@ -4,7 +4,10 @@ Description of the misc section and its projects inside
 
 ## cheat-sheet git
 Found a very simple git cheat-sheet here:
-[git cheat-sheet](https://www.jrebel.com/blog/git-cheat-sheet)
+[git cheat-sheet I](https://www.jrebel.com/blog/git-cheat-sheet)
+
+And another one here:
+[git cheat-sheet II](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
 
 Tribute to author: (https://www.jrebel.com/blog/git-cheat-sheet#authorsimonmaple)
 ![alt text](https://github.com/hadze/misc/blob/master/cheatsheet.png)
